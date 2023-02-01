@@ -1,0 +1,11 @@
+{
+  "name": "intracdl-test",
+  "version": "1.0.0",
+  "description": "Testing continuous integration/deployment of IntraCDL website using GitHub Actions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
