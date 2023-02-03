@@ -4,19 +4,15 @@ on:
     branches:
       - main
       - dev
-      - stage
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
-      - name: Copy files to dev folder
+      - name: Push changes to dev branch
         if: github.ref == 'refs/heads/dev'
-        run: echo "files successfully copied to dev"
-      - name: Copy files to stage folder
-        if: github.ref == 'refs/heads/stage'
-        run: echo "files successfully copied to stage"
-      - name: Copy files to prod folder
+        run: echo "changes successfully pushed to dev branch"
+      - name: Push changes to main branch
         if: github.ref == 'refs/heads/main'
-        run: echo "files successfully copied to prod"
+        run: echo "changes successfully pushed to main branch"
