@@ -4,7 +4,7 @@
   "description": "Testing continuous integration/deployment of IntraCDL website using GitHub Actions",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "get-theme-stylesheet": "rsync -rvu --delete webprod@web-webprod2-dev.cdlib.org:/apps/webprod/apache/htdocs/intracdl/intracdl-dev/wp-content/themes/twentytwentythree/style.css ./"
   },
   "author": "",
   "license": "ISC"
