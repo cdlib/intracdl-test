@@ -14,10 +14,14 @@ jobs:
         uses: shimataro/ssh-key-action@v2
         with:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
-      - name: Push changes to dev branch
+          known_hosts: unnecessary
+      - name: Copy style changes to dev branch
         if: github.ref == 'refs/heads/dev'
-        run: echo "changes successfully pushed to dev branch"
-      - name: Push changes to main branch
+        run: |
+          rsync -uv ./style.css webprod@web-webprod2-dev.cdlib.org:/apps/webprod/apache/htdocs/intracdl/intracdl-dev/wp-content/themes/twentytwentythree
+          echo "style changes successfully copied to dev branch"
+      - name: Copy style changes to main branch
         if: github.ref == 'refs/heads/main'
-        run: echo "changes successfully pushed to main branch"
+        run: |
+          rsync -uv ./style.css webprod@web-webprod2-dev.cdlib.org:/apps/webprod/apache/htdocs/intracdl/intracdl-dev/wp-content/themes/twentytwentythree
+          echo "style changes successfully copied to main branch"
